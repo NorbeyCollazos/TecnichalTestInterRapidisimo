@@ -2,6 +2,7 @@ package com.ncrdesarrollo.tecnichaltestinterrapidisimo.localities.di
 
 import com.ncrdesarrollo.tecnichaltestinterrapidisimo.localities.data.LocalitiesApiServer
 import com.ncrdesarrollo.tecnichaltestinterrapidisimo.localities.data.LocalitiesRepository
+import com.ncrdesarrollo.tecnichaltestinterrapidisimo.localities.data.roomdatabase.LocalitiesDao
 import com.ncrdesarrollo.tecnichaltestinterrapidisimo.localities.domain.ILocalitiesInteractor
 import com.ncrdesarrollo.tecnichaltestinterrapidisimo.localities.domain.ILocalitiesRepository
 import com.ncrdesarrollo.tecnichaltestinterrapidisimo.localities.domain.LocalitiesInteractor
@@ -24,8 +25,8 @@ object LocalitiesModule {
 
     @Provides
     @Singleton
-    fun providerLocalitiesRepository(apiService: LocalitiesApiServer) : ILocalitiesRepository {
-        return LocalitiesRepository(apiService)
+    fun providerLocalitiesRepository(apiService: LocalitiesApiServer, localitiesDao: LocalitiesDao) : ILocalitiesRepository {
+        return LocalitiesRepository(apiService, localitiesDao)
     }
 
     @Provides

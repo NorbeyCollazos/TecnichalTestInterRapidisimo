@@ -78,6 +78,10 @@ dependencies {
     // DataStore
     implementation("androidx.datastore:datastore-preferences:1.0.0")
 
+    // for ROOM
+    implementation ("androidx.room:room-ktx:2.4.0")
+    kapt ("androidx.room:room-compiler:2.4.0")
+
 
 
     testImplementation(libs.junit)
