@@ -3,9 +3,7 @@ package com.ncrdesarrollo.tecnichaltestinterrapidisimo.home.ui
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -16,7 +14,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 
 @Composable
-fun HomeScreen(innerPadding: PaddingValues, homeViewModel: HomeViewModel) {
+fun HomeScreen(
+    homeViewModel: HomeViewModel,
+    navigateToSchema: () -> Unit,
+    navigateToLocalities: () -> Unit
+) {
 
     val context = LocalContext.current
     homeViewModel.getVersion()
@@ -24,7 +26,6 @@ fun HomeScreen(innerPadding: PaddingValues, homeViewModel: HomeViewModel) {
 
     Column(
         Modifier
-            .padding(innerPadding)
             .fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -39,11 +40,11 @@ fun HomeScreen(innerPadding: PaddingValues, homeViewModel: HomeViewModel) {
         Text("Identificación: ${userInfo.Identificacion}")
         Text("Nombre: ${userInfo.Nombre}")
 
-        Button(onClick = {}) {
+        Button(onClick = {navigateToSchema()}) {
             Text("Tablas")
         }
 
-        Button(onClick = {}) {
+        Button(onClick = {navigateToLocalities()}) {
             Text("Localidades")
         }
 

@@ -19,7 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun LocalitiesScreen(innerPadding: PaddingValues, localitiesViewModel: LocalitiesViewModel) {
+fun LocalitiesScreen(localitiesViewModel: LocalitiesViewModel) {
 
     localitiesViewModel.getListLocalities()
     val localitiesList by localitiesViewModel.localitiesList.collectAsState()

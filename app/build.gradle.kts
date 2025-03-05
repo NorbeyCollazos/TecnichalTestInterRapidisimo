@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.jetbrainsKotlinSerialization)
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
 }
@@ -52,6 +53,10 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
+    // for navigation
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.kotlinx.serialization.json)
+
     //DaggerHilt
     implementation("com.google.dagger:hilt-android:2.48")
     kapt("com.google.dagger:hilt-compiler:2.48")
@@ -63,6 +68,9 @@ dependencies {
 
     // ViewModel
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
+
+    // for inject viewModel in Navigation
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
 
     //Corrutinas
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0")
