@@ -1,6 +1,7 @@
 package com.ncrdesarrollo.tecnichaltestinterrapidisimo.home.data.network
 
 import android.content.Context
+import com.ncrdesarrollo.tecnichaltestinterrapidisimo.core.dataStorage.IPreferencesImpl
 import com.ncrdesarrollo.tecnichaltestinterrapidisimo.home.data.HomeApiService
 import com.ncrdesarrollo.tecnichaltestinterrapidisimo.home.data.HomeRepository
 import com.ncrdesarrollo.tecnichaltestinterrapidisimo.home.domain.HomeInteractor
@@ -26,8 +27,8 @@ object NetworkModule {
 
         @Provides
         @Singleton
-        fun providerHomeRepository(apiService: HomeApiService) : IHomeRepository {
-            return HomeRepository(apiService)
+        fun providerHomeRepository(apiService: HomeApiService, preferencesImpl: IPreferencesImpl) : IHomeRepository {
+            return HomeRepository(apiService, preferencesImpl)
         }
 
         @Provides
